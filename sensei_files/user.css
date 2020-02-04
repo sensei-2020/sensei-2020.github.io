@@ -43,11 +43,13 @@
 .hero .get-it p{
   color:#fff;
   margin-bottom:50px;
+  font-family: "Times New Roman", Times, serif;
   font-size:25px;
   font-weight:200;
 }
 
 .abstract p{
+  font-family: "Times New Roman", Times, serif;
   font-size:20px;
   font-weight:200;
   margin-bottom:30px;
