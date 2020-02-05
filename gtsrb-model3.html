@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://extractfix.github.io/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExtractFix</title>
+    <link rel="stylesheet" href="./sensei_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./sensei_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./sensei_files/user.css">
+    <link href="./sensei_files/prism.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <pre class=" language-diff"><code class=" language-diff">
+            GTSRB Model-3
+
+
+            # model with batch normalization 
+            # https://github.com/xitizzz/Traffic-Sign-Recognition-using-Deep-Neural-Network
+            
+            model = Sequential()
+            BatchNormalization(epsilon=1e-06, momentum=0.99, weights=None)
+
+            # Block 1 Convolution layer 1,2  Normalization layer 3
+            model.add(Conv2D(32, (3, 3), padding='same', input_shape=self.input_shape, activation='relu'))
+            model.add(Conv2D(32, (3, 3), activation='relu'))
+            model.add(BatchNormalization())
+            model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
+            model.add(Dropout(0.2))
+
+            # Block 1 Convolution layer 4,5  Normalization layer 6
+            model.add(Conv2D(64, (3, 3), padding='same', activation='relu'))
+            model.add(Conv2D(64, (3, 3), activation='relu'))
+            model.add(BatchNormalization())
+            model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
+            model.add(Dropout(0.2))
+
+            # Block 1 Convolution layer 7,8  Normalization layer 9
+            model.add(Conv2D(128, (3, 3), padding='same', activation='relu'))
+            model.add(Conv2D(128, (3, 3), activation='relu'))
+            model.add(BatchNormalization())
+            model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
+            model.add(Dropout(0.2))
+
+            # Block 5 Fully-connected layer 10, Normalization layer 11,  Output layer 12
+            model.add(Flatten())
+            model.add(Dense(512, activation='relu'))
+            model.add(Dropout(0.5))
+            model.add(BatchNormalization())
+            model.add(Dense(self.num_classes, activation='softmax'))
+            lr = 0.01
+            decay = 1e-6
+            sgd = keras.optimizers.SGD(lr=lr, decay=decay, momentum=0.9, nesterov=True)
+
+            model.compile(loss='categorical_crossentropy',
+                          optimizer=sgd,
+                          metrics=['accuracy'])
+		</code></pre>
+    </div>
+</body></html>

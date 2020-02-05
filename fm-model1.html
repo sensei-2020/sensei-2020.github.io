@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://extractfix.github.io/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExtractFix</title>
+    <link rel="stylesheet" href="./sensei_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./sensei_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./sensei_files/user.css">
+    <link href="./sensei_files/prism.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <pre class=" language-diff"><code class=" language-diff">
+            Fashion-Mnist Model 1
+
+            #VGG16
+            input_tensor = Input(shape=input_shape)
+            x = Conv2D(64, (3, 3), activation='relu', padding='same', name='block1_conv1')(input_tensor)
+            x = Conv2D(64, (3, 3), activation='relu', padding='same', name='block1_conv2')(x)
+            x = MaxPooling2D((2, 2), strides=(2, 2), name='block1_pool')(x)
+
+            # Block 2
+            x = Conv2D(128, (3, 3), activation='relu', padding='same', name='block2_conv1')(x)
+            x = Conv2D(128, (3, 3), activation='relu', padding='same', name='block2_conv2')(x)
+            x = MaxPooling2D((2, 2), strides=(2, 2), name='block2_pool')(x)
+
+            # Block 3
+            x = Conv2D(256, (3, 3), activation='relu', padding='same', name='block3_conv1')(x)
+            x = Conv2D(256, (3, 3), activation='relu', padding='same', name='block3_conv2')(x)
+            x = Conv2D(256, (3, 3), activation='relu', padding='same', name='block3_conv3')(x)
+            x = MaxPooling2D((2, 2), strides=(2, 2), name='block3_pool')(x)
+
+            # Block 4
+            x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block4_conv1')(x)
+            x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block4_conv2')(x)
+            x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block4_conv3')(x)
+            x = MaxPooling2D((2, 2), strides=(2, 2), name='block4_pool')(x)
+
+            # Classification block
+            x = Flatten(name='flatten')(x)
+            x = Dense(4096, activation='relu', name='fc1')(x)
+            x = Dense(4096, activation='relu', name='fc2')(x)
+            x = Dropout(0.5)(x)
+            x = Dense(10, activation='softmax', name='predictions')(x)
+            return_model = Model(inputs=[input_tensor], outputs=[x])
+            return_model.compile(loss=keras.losses.categorical_crossentropy,
+                                 optimizer=keras.optimizers.Adam(),
+                                 metrics=['accuracy'])
+		</code></pre>
+    </div>
+</body></html>

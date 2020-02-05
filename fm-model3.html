@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://extractfix.github.io/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExtractFix</title>
+    <link rel="stylesheet" href="./sensei_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./sensei_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./sensei_files/user.css">
+    <link href="./sensei_files/prism.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <pre class=" language-diff"><code class=" language-diff">
+            Fashion Mnist Model 3
+
+            # https://github.com/cmasch/zalando-fashion-mnist/blob/master/Simple_Convolutional_Neural_Network_Fashion-MNIST.ipynb
+            cnn = Sequential()
+
+            cnn.add(InputLayer(input_shape=self.input_shape))
+
+            cnn.add(BatchNormalization())
+            cnn.add(Convolution2D(64, (4, 4), padding='same', activation='relu'))
+            cnn.add(MaxPooling2D(pool_size=(2, 2)))
+            cnn.add(Dropout(0.1))
+
+            cnn.add(Convolution2D(64, (4, 4), activation='relu'))
+            cnn.add(MaxPooling2D(pool_size=(2, 2)))
+            cnn.add(Dropout(0.3))
+
+            cnn.add(Flatten())
+
+            cnn.add(Dense(256, activation='relu'))
+            cnn.add(Dropout(0.5))
+
+            cnn.add(Dense(64, activation='relu'))
+            cnn.add(BatchNormalization())
+
+            cnn.add(Dense(self.num_classes, activation='softmax'))
+            cnn.compile(loss='categorical_crossentropy',
+                        optimizer=keras.optimizers.Adam(),
+                        metrics=['accuracy'])
+
+            return cnn
+		</code></pre>
+    </div>
+</body></html>

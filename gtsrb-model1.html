@@ -13,7 +13,39 @@
 <body>
     <div>
         <pre class=" language-diff"><code class=" language-diff">
+            GTSRB Model-1
+            
+            # baseline Model
+            # https://github.com/xitizzz/Traffic-Sign-Recognition-using-Deep-Neural-Network
+            oxford_model = Sequential()
+            oxford_model.add(Conv2D(32, (3, 3), padding="same", activation="relu", input_shape=input_shape))
+            oxford_model.add(Conv2D(32, (3, 3), activation="relu"))
+            oxford_model.add(MaxPooling2D(pool_size=(2, 2)))
+            oxford_model.add(Dropout(0.2))
 
+            oxford_model.add(Conv2D(64, (3, 3), padding="same", activation="relu"))
+            oxford_model.add(Conv2D(64, (3, 3), activation="relu"))
+            oxford_model.add(MaxPooling2D(pool_size=(2, 2)))
+            oxford_model.add(Dropout(0.2))
+
+            oxford_model.add(Conv2D(128, (3, 3), padding="same", activation="relu"))
+            oxford_model.add(Conv2D(128, (3, 3), activation="relu"))
+            oxford_model.add(MaxPooling2D(pool_size=(2, 2)))
+            oxford_model.add(Dropout(0.2))
+
+            if self.config.enable_filters:
+                oxford_model.add(Conv2D(128, (3, 3), padding="same", activation="relu"))
+                oxford_model.add(Conv2D(128, (3, 3), activation="relu"))
+                oxford_model.add(MaxPooling2D(pool_size=(2, 2)))
+                oxford_model.add(Dropout(0.2))
+
+            oxford_model.add(Flatten())
+            oxford_model.add(Dense(512, activation='relu'))
+            oxford_model.add(Dropout(0.5))
+            oxford_model.add(Dense(self.num_classes, activation='softmax'))
+            oxford_model.compile(loss=keras.losses.categorical_crossentropy,
+                                 optimizer=keras.optimizers.Adam(),
+                                 metrics=['accuracy'])
 		</code></pre>
     </div>
 </body></html>

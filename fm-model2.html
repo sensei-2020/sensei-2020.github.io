@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://extractfix.github.io/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExtractFix</title>
+    <link rel="stylesheet" href="./sensei_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./sensei_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./sensei_files/user.css">
+    <link href="./sensei_files/prism.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <pre class=" language-diff"><code class=" language-diff">
+            Fashion Mnist Model 2
+
+            """
+            Convolutional Neural Network: https://github.com/umbertogriffo/Fashion-mnist-cnn-keras/blob/
+            master/src/convolutional/fashion_mnist_cnn.py
+            """
+            return_model = Sequential()
+            return_model.add(Conv2D(32, (5, 5), input_shape=self.input_shape, padding='same', activation='relu'))
+            return_model.add(MaxPooling2D(pool_size=(2, 2), padding='same'))
+
+            return_model.add(Conv2D(64, (5, 5), padding='same', activation='relu'))
+            return_model.add(MaxPooling2D(pool_size=(2, 2), padding='same'))
+
+            return_model.add(Conv2D(128, (1, 1), padding='same', activation='relu'))
+            return_model.add(MaxPooling2D(pool_size=(2, 2), padding='same'))
+
+            return_model.add(Flatten())
+
+            return_model.add(Dense(1024, activation='relu', kernel_constraint=maxnorm(3)))
+            return_model.add(Dropout(0.5))
+            return_model.add(Dense(512, activation='relu', kernel_constraint=maxnorm(3)))
+            return_model.add(Dropout(0.5))
+
+            return_model.add(Dense(self.num_classes, activation='softmax'))
+            # Compile model
+            lrate = 0.1
+            decay = lrate / self.epoch
+            sgd = keras.optimizers.SGD(lr=lrate, momentum=0.9, decay=decay, nesterov=True)
+            return_model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+		</code></pre>
+    </div>
+</body></html>

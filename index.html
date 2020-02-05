@@ -37,7 +37,7 @@
 	  		<h1 class="text-left"> Overview</h1>
 	  		<div class="abstract">
 	  		<p> 
-	  		<img src="./sensei_files/architecture.PNG" align="right" height="360" weight="400" rel="stylesheet">
+	  		<img style="max-width: 45%;" src="./sensei_files/architecture.PNG" align="right" rel="stylesheet">
 	  		Deep neural networks (DNN) have been shown to be notoriously brittle to small perturbations in their input data. This problem is analogous to the over-fitting problem in test-based program synthesis and automatic program repair, which is a consequence of the incomplete specification, i.e. the limited tests or training examples, that the program synthesis or repair algorithm has to learn from. Recently, test generation techniques have been successfully employed to augment existing specifications of intended program behavior, to improve the generalizability of program synthesis and repair. Inspired by these approaches, in this paper, we propose a technique that re-purposes software testing methods, specifically mutation-based fuzzing, to augment the training data of DNNs, with the objective of enhancing their robustness. Our technique casts the DNN data augmentation problem as an optimization problem. It uses genetic search to generate the most suitable variant of an input data to use for training the DNN, while simultaneously identifying opportunities to accelerate training by skipping augmentation in many instances. We instantiate this technique in two tools, Sensei and Sensei-SA, and evaluate them on 15 DNN models spanning 5 popular image data-sets.  Our evaluation shows that Sensei can improve the robust accuracy of the DNN, compared to the state of the art, on each of the 15 models, by upto 11.9% and 5.5% on average. Further, Sensei-SA can reduce the average DNN training time by 25%, while still improving robust accuracy.</p>
 	  		</div>
 	  	</div>
@@ -49,7 +49,7 @@
         <hr>
         <h2 id="people">Publication</h2>
         <div>
-            <img src="./sensei_files/download.PNG" align="right" height="45" weight="30" rel="stylesheet">
+            <img src="./sensei_files/download.png" align="right" style="max-width: 4%;" rel="stylesheet">
             <h4> <strong> Fuzz Testing based Data Augmentation to Improve Robustness of Deep Neural Networks</strong><br></h4>
             <p> Xiang Gao, Ripon K. Saha, Mukul R. Prasad, Abhik Roychoudhury</p>
             <p> ACM/IEEE 42nd International Conference on Software Engineering (ICSE) 2020.</p>
@@ -96,13 +96,13 @@
                                 <td rowspan="4"  style="vertical-align:middle;">CIFAR-10</td> <td><a href="./cifar10-model1.html">Model-1</a></td> <td>1.30</td> <td>52.20</td> <td>61.80</td> <td>67.20</td>
                             </tr>
                             <tr>
-                                <td><a href="./cifar10-model2.html">Model-2</a></td> <td>1.40</td> <td>56.70</td> <td>64.90</td> <td>67.90</td>
+                                <td><a href="./cifar10-model1.html">Model-2</a></td> <td>1.40</td> <td>56.70</td> <td>64.90</td> <td>67.90</td>
                             </tr>
                             <tr>
                                 <td><a href="./cifar10-model3.html">Model-3</a></td> <td>1.80</td> <td>73.30</td> <td>76.50</td> <td>81.50</td>
                             </tr>
                             <tr>
-                                <td><a href="./cifar10-model4.html">Model-4</a></td> <td>1.10</td> <td>47.50</td> <td>60.10</td> <td>66.20</td>
+                                <td><a href="./cifar10-model1.html">Model-4</a></td> <td>1.10</td> <td>47.50</td> <td>60.10</td> <td>66.20</td>
                             </tr>
                         </thead>
                         <thead>                    

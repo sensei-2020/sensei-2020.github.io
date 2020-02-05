@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://extractfix.github.io/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExtractFix</title>
+    <link rel="stylesheet" href="./sensei_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./sensei_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./sensei_files/user.css">
+    <link href="./sensei_files/prism.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <pre class=" language-diff"><code class=" language-diff">
+            IMDB Model 1
+
+            input_tensor = Input(shape=self.input_shape)
+            base_model = VGG16(weights='imagenet', include_top=False, input_tensor=input_tensor)
+            x = base_model.output
+            x = GlobalAveragePooling2D()(x)
+            x = Dense(1024, activation='relu')(x)
+            predictions = Dense(self.num_classes, activation='softmax')(x)
+            model = Model(inputs=base_model.input, outputs=predictions)
+            for layer in base_model.layers[:15]:
+                layer.trainable = False
+            model.compile(optimizer=keras.optimizers.SGD(lr=0.0001, momentum=0.9, decay=1e-6),
+                          loss='categorical_crossentropy',
+                          metrics=['accuracy'])
+		</code></pre>
+    </div>
+</body></html>
